@@ -42,16 +42,18 @@ def start(update: Update, context: CallbackContext) -> None:
 @send_action(ChatAction.TYPING)
 def status(update: Update, context: CallbackContext) -> None:
     #member = context.bot.get_chat_member(message.chat.id)
-    member = context.bot.get_chat_member(update.message.chat_id, context.bot.user_id)
-    for x in member:
-        print(x)
+    # member = context.bot.get_chat_member(update.message.chat_id, context.bot.user_id)
+    # for x in member:
+    for x in context.bot:
+        #print(x)
+        print vars(x)
 
 @send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
     # update.message.sendMessage(f'Hello {update.effective_user.first_name}')
     #context.bot.send_message(f'Hello {update.effective_user.first_name}')
     context.bot.send_message(update.message.chat_id, f'Hello {update.effective_user.first_name}')
-    #print vars(foo)
+    
 
 def delete(update: Update, context: CallbackContext) -> None:
     #update.message.reply_text(f'Hello {update.effective_user.first_name}')
