@@ -47,7 +47,8 @@ def status(update: Update, context: CallbackContext) -> None:
     # for x in member:
     for x in context.bot:
         #print(x)
-        print vars(x)
+        #print vars(x)
+        print( vars(x) )
 
 @send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
