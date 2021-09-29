@@ -41,7 +41,7 @@ def start(update: Update, context: CallbackContext) -> None:
 @send_action(ChatAction.TYPING)
 def status(update: Update, context: CallbackContext) -> None:
     #member = context.bot.get_chat_member(message.chat.id)
-    member = context.bot.get_chat_member(update.message.chat_id)
+    member = context.bot.get_chat_member(update.message.chat_id, context.bot.user_id)
     for x in member:
         print(x)
 
