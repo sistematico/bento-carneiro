@@ -13,7 +13,9 @@ def stop_and_restart():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 def restart(update, context):
-    update.message.reply_text('Estou reiniciando...')
+    context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
+    #update.message.reply_text('Estou reiniciando...')
+    update.message.send('Estou reiniciando...')
     Thread(target=stop_and_restart).start()
 
 def send_action(action):
@@ -38,13 +40,14 @@ def start(update: Update, context: CallbackContext) -> None:
 
 @send_action(ChatAction.TYPING)
 def status(update: Update, context: CallbackContext) -> None:
-    member = context.bot.get_chat_member(message.chat.id)
+    #member = context.bot.get_chat_member(message.chat.id)
+    member = context.bot.get_chat_member(update.message.chat_id)
     for x in member:
         print(x)
 
 @send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text(f'Hello {update.effective_user.first_name}')
+    update.message.send(f'Hello {update.effective_user.first_name}')
     #print vars(foo)
 
 def delete(update: Update, context: CallbackContext) -> None:
