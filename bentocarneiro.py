@@ -15,7 +15,7 @@ def stop_and_restart():
 def restart(update, context):
     context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
     #update.message.reply_text('Estou reiniciando...')
-    update.message.send('Estou reiniciando...')
+    update.message.send_message('Estou reiniciando...')
     Thread(target=stop_and_restart).start()
 
 def send_action(action):
@@ -47,7 +47,7 @@ def status(update: Update, context: CallbackContext) -> None:
 
 @send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
-    update.message.send(f'Hello {update.effective_user.first_name}')
+    update.message.send_message(f'Hello {update.effective_user.first_name}')
     #print vars(foo)
 
 def delete(update: Update, context: CallbackContext) -> None:
@@ -57,7 +57,7 @@ def delete(update: Update, context: CallbackContext) -> None:
     #context.bot.deleteMessage(message_id = must_delete.message_id, chat_id = update.message.chat_id)
     
     if any(x in update.message.text for x in blacklist):
-        context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
+        context.bot.delete_message(chat_id=update.message.chat_id, message_id=update.message.message_id)
 
 updater = Updater(TOKEN)
 
