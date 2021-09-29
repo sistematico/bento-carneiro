@@ -43,7 +43,7 @@ def hello(update: Update, context: CallbackContext) -> None:
 def delete(update: Update, context: CallbackContext) -> None:
     #update.message.reply_text(f'Hello {update.effective_user.first_name}')
     #update.delete_message(chat_id=message.chat_id, message_id=message.message_id, *args, **kwargs)
-    update.delete_message(chat_id=message.chat_id, message_id=message.message_id)
+    update.message.delete_message(chat_id=message.chat_id, message_id=message.message_id)
 
 updater = Updater(TOKEN)
 
