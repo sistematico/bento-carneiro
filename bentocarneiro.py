@@ -4,7 +4,8 @@ from threading import Thread
 from telegram import Update, ChatAction, ForceReply
 from telegram.ext import Updater, MessageHandler, CommandHandler, CallbackContext, Filters
 from functools import wraps
-from config import TOKEN
+from config.config import TOKEN
+from config.blacklist import blacklist
 
 def stop_and_restart():
     """Gracefully stop the Updater and replace the current process with a new one"""
@@ -39,13 +40,16 @@ def start(update: Update, context: CallbackContext) -> None:
 def hello(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
+    #print vars(foo)
+
 @send_action(ChatAction.TYPING)
 def delete(update: Update, context: CallbackContext) -> None:
     #update.message.reply_text(f'Hello {update.effective_user.first_name}')
     #update.delete_message(chat_id=message.chat_id, message_id=message.message_id, *args, **kwargs)
     #must_delete = update.message.reply_text("Please delete: ")
     #context.bot.deleteMessage(message_id = must_delete.message_id, chat_id = update.message.chat_id)
-    context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
+    if any(x in update.message.text for x in blacklist):
+        context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
 
 updater = Updater(TOKEN)
 
