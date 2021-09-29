@@ -55,6 +55,7 @@ def delete(update: Update, context: CallbackContext) -> None:
     #update.delete_message(chat_id=message.chat_id, message_id=message.message_id, *args, **kwargs)
     #must_delete = update.message.reply_text("Please delete: ")
     #context.bot.deleteMessage(message_id = must_delete.message_id, chat_id = update.message.chat_id)
+    
     if any(x in update.message.text for x in blacklist):
         context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
 
