@@ -48,7 +48,9 @@ def status(update: Update, context: CallbackContext) -> None:
     # member = context.bot.get_chat_member(update.message.chat_id, context.bot.user_id)
     # for x in member:
     for x in context.bot:
-        context.bot.send_message(update.message.chat_id, str(vars(x)))
+        arg = ''.join(x)
+        context.bot.send_message(update.message.chat_id, str(arg))
+        #context.bot.send_message(update.message.chat_id, str(vars(x)))
         #print(x)
         #print vars(x)
         #print( vars(x) )
