@@ -1,7 +1,19 @@
+import os
+import sys
+from threading import Thread
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 from functools import wraps
 from config import TOKEN
+
+def stop_and_restart():
+    """Gracefully stop the Updater and replace the current process with a new one"""
+    updater.stop()
+    os.execl(sys.executable, sys.executable, *sys.argv)
+
+def restart(update, context):
+    update.message.reply_text('Estou reiniciando...')
+    Thread(target=stop_and_restart).start()
 
 def send_action(action):
     """Sends `action` while processing func command."""
@@ -38,7 +50,9 @@ updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
 
-dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, delete))
+updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, delete))
+
+updater.dispatcher.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@sistematico')))
 
 updater.start_polling()
 updater.idle()
