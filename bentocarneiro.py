@@ -37,6 +37,12 @@ def start(update: Update, context: CallbackContext) -> None:
     )
 
 @send_action(ChatAction.TYPING)
+def status(update: Update, context: CallbackContext) -> None:
+    member = context.bot.get_chat_member(message.chat.id)
+    for x in member:
+        print(x)
+
+@send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
