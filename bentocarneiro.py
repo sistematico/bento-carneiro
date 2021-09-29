@@ -14,9 +14,10 @@ def stop_and_restart():
 
 def restart(update, context):
     context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
+    # Responde
     #update.message.reply_text('Estou reiniciando...')
+    # Fala
     context.bot.send_message(update.message.chat_id, 'Estou reiniciando...')
-    # update.message.sendMessage('Estou reiniciando...')
     Thread(target=stop_and_restart).start()
 
 def send_action(action):
@@ -71,7 +72,6 @@ updater.dispatcher.add_handler(CommandHandler('hello', hello))
 updater.dispatcher.add_handler(CommandHandler('status', status))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, delete))
-
 updater.dispatcher.add_handler(CommandHandler('r', restart, filters=Filters.user(username='@sistematico')))
 
 updater.start_polling()
