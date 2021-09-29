@@ -45,10 +45,8 @@ def status(update: Update, context: CallbackContext) -> None:
 @send_action(ChatAction.TYPING)
 def hello(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(f'Hello {update.effective_user.first_name}')
-
     #print vars(foo)
 
-@send_action(ChatAction.TYPING)
 def delete(update: Update, context: CallbackContext) -> None:
     #update.message.reply_text(f'Hello {update.effective_user.first_name}')
     #update.delete_message(chat_id=message.chat_id, message_id=message.message_id, *args, **kwargs)
@@ -61,6 +59,7 @@ updater = Updater(TOKEN)
 
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('hello', hello))
+updater.dispatcher.add_handler(CommandHandler('status', status))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, delete))
 
