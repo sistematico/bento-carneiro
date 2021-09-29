@@ -1,7 +1,7 @@
 import os
 import sys
 from threading import Thread
-from telegram import Update
+from telegram import Update, ChatAction
 from telegram.ext import Updater, CommandHandler, CallbackContext
 from functools import wraps
 from config import TOKEN
