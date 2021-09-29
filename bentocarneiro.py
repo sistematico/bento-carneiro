@@ -2,7 +2,7 @@ import os
 import sys
 from threading import Thread
 from telegram import Update, ChatAction
-from telegram.ext import Updater, MessageHandler, CommandHandler, CallbackContext
+from telegram.ext import Updater, MessageHandler, CommandHandler, CallbackContext, Filters
 from functools import wraps
 from config import TOKEN
 
