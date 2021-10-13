@@ -1,8 +1,9 @@
 # Bento Carneiro
 
-![Bento Carneiro](https://raw.githubusercontent.com/sistematico/bento-carneiro/main/assets/img/bento_carneiro.jpg "Bento Carneiro")  
-
-*O vampiro brasileiro*
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sistematico/bento-carneiro/main/assets/img/bento_carneiro.jpg" alt="Bento Carneiro" />
+  <em>O vampiro brasileiro</em>
+</p>
 
 Um bot anti-spam para Telegram usando o wrapper [python-telegram-bot](https://python-telegram-bot.org).
 
