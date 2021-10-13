@@ -1,0 +1,13 @@
+[Unit]
+Description=Bento Carneiro Telegram Bot
+After=multi-user.target
+
+[Service]
+Type=idle
+Restart=on-failure
+User=bentocarneiro
+WorkingDirectory=/var/bentocarneiro/bot
+ExecStart=python3 bentocarneiro.py 2>&1
+
+[Install]
+WantedBy=multi-user.target
