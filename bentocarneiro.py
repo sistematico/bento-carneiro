@@ -14,11 +14,7 @@ def stop_and_restart():
 
 def restart(update, context):
     context.bot.deleteMessage(chat_id=update.message.chat_id, message_id=update.message.message_id)
-    
-    # Responde
     #update.message.reply_text('Estou reiniciando...')
-    
-    # Fala
     context.bot.send_message(update.message.chat_id, 'Estou reiniciando...')
     Thread(target=stop_and_restart).start()
 
@@ -37,10 +33,7 @@ def send_action(action):
 def start(update: Update, context: CallbackContext) -> None:
     """Send a message when the command /start is issued."""
     user = update.effective_user
-    update.message.reply_markdown_v2(
-        fr'Hi {user.mention_markdown_v2()}\!',
-        reply_markup=ForceReply(selective=True),
-    )
+    update.message.reply_markdown_v2(fr'Olá {user.mention_markdown_v2()}\!', reply_markup=ForceReply(selective=True),)
 
 @send_action(ChatAction.TYPING)
 def status(update: Update, context: CallbackContext) -> None:

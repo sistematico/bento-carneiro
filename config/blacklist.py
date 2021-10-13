@@ -1,5 +1,5 @@
 blacklist = [
-    'chat.wahtsapp',
+    'chat.whatsapp',
     'wa.me',
     't.me',
     'api.whatsapp',
