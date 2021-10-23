@@ -7,6 +7,7 @@ blacklist = [
     'nos uma visita',
     'financiamento negado',
     'veículos novos e semi',
+    'faça seu orçamento',
     'veículos semi-novo',
     'plano sem juro',
     'planos sem juro',
