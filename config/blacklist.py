@@ -7,6 +7,11 @@ blacklist = [
     'nos uma visita',
     'financiamento negado',
     'veículos novos e semi',
-    'plano sem juros',
-    'planos sem juros'
+    'veículos semi-novo',
+    'plano sem juro',
+    'planos sem juro',
+    'serviços de frete',
+    'adestramento inteligente',
+    'ensine seu cão',
+    'ensine seu cachorro'
 ]
