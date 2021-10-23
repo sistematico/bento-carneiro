@@ -20,7 +20,6 @@ def restart(update, context):
 
 def send_action(action):
     """Sends `action` while processing func command."""
-
     def decorator(func):
         @wraps(func)
         def command_func(update, context, *args, **kwargs):
@@ -59,7 +58,8 @@ def delete(update: Update, context: CallbackContext) -> None:
     #must_delete = update.message.reply_text("Please delete: ")
     
     if any(x in update.message.text for x in blacklist):
-        context.bot.delete_message(chat_id=update.message.chat_id, message_id=update.message.message_id)
+        context.bot.delete_message(chat_id=update.effective_message.chat_id, message_id=update.effective_message.message_id)
+        #context.bot.delete_message(chat_id=update.message.chat_id, message_id=update.message.message_id)
 
 updater = Updater(TOKEN)
 
