@@ -1,7 +1,7 @@
 # Bento Carneiro
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sistematico/bento-carneiro/main/assets/img/bento_carneiro.jpg" alt="Bento Carneiro" />
+  <img src="https://raw.githubusercontent.com/sistematico/bento-carneiro/main/assets/img/bento_carneiro.jpg" alt="Bento Carneiro" /><br />
   <em>O vampiro brasileiro</em>
 </p>
 
