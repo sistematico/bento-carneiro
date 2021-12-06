@@ -57,7 +57,10 @@ def delete(update: Update, context: CallbackContext) -> None:
     messageId = update.message.message_id
     chatId = update.message.chat.id
 
-    context.bot.send_message(chat_id=-406648969, str(update.message))
+    print(update.message)
+
+    #context.bot.send_message(chat_id=-406648969, str(update.message))
+    #context.bot.send_message(chat_id=-406648969, print(update.message))
 
     
     
