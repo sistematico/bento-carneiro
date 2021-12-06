@@ -14,5 +14,6 @@ blacklist = [
     'serviços de frete',
     'adestramento inteligente',
     'ensine seu cão',
-    'ensine seu cachorro'
+    'ensine seu cachorro',
+    'raissa sampaio'
 ]
