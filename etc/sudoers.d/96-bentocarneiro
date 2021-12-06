@@ -1,0 +1,1 @@
+bentocarneiro ALL = (root) NOPASSWD: /usr/bin/systemctl start bentocarneiro, /usr/bin/systemctl restart bentocarneiro, /usr/bin/systemctl stop bentocarneiro

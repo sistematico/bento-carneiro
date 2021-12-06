@@ -54,12 +54,12 @@ def hello(update: Update, context: CallbackContext) -> None:
     context.bot.send_message(update.message.chat_id, f'Hello {update.effective_user.first_name}')
 
 def delete(update: Update, context: CallbackContext) -> None:
-    #update.delete_message(chat_id=message.chat_id, message_id=message.message_id, *args, **kwargs)
-    #must_delete = update.message.reply_text("Please delete: ")
+    messageId = update.message.message_id
+    chatId = update.message.chat.id
     
     if any(x in update.message.text for x in blacklist):
-        context.bot.delete_message(chat_id=update.effective_message.chat_id, message_id=update.effective_message.message_id)
-        #context.bot.delete_message(chat_id=update.message.chat_id, message_id=update.message.message_id)
+        context.bot.delete_message(chat_id=chatId, message_id=messageId)
+        #context.bot.delete_message(chat_id=update.effective_message.chat_id, message_id=update.effective_message.message_id)
 
 updater = Updater(TOKEN)
 
