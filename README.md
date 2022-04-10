@@ -9,6 +9,12 @@ Um bot anti-spam para Telegram usando o wrapper [python-telegram-bot](https://py
 
 ## Uso
 
+### Com o Ansible(recomendado)
+
+`TG_BOT_TOKEN='SEU_TOKEN_AQUI' TG_BOT_PASSWD='senha_do_bot' ansible-playbook -i IP_DO_HOST, ansible.yml`
+
+### Sem o Ansible
+
 1. Instale o python-telegram-bot: `pip install python-telegram-bot`
 2. Copie o arquivo `systemd/bentocarneiro.service` para `/etc/systemd/system/`
 3. Clone este repositório: `mkdir /var/bentocarneiro/ && git clone https://github.com/sistematico/bento-carneiro.git /var/bentocarneiro/bot`
