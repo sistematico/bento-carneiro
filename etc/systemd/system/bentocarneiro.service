@@ -5,6 +5,7 @@ After=multi-user.target
 [Service]
 Type=idle
 Restart=on-failure
+RestartSec=5
 User=bentocarneiro
 WorkingDirectory=/var/bentocarneiro/bot
 ExecStart=python3 bentocarneiro.py 2>&1

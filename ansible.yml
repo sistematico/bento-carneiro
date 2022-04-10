@@ -15,13 +15,13 @@
         - password
         - token
 
-    - name: Install git & sudo
+    - name: Install dependencies
       apt:
         update_cache: yes
         pkg:
           - git
           - sudo
-          - python-pip
+          - python3-pip
 
     - name: Git checkout
       git:
