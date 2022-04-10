@@ -57,15 +57,13 @@
         group: bentocarneiro
         mode: '0644'
 
-    - name: Copy bot files
+    - name: Copy bot systemd unit
       copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
-        owner: "{{ item.user }}"
-        group: "{{ item.group }}"
-        mode: "{{ item.mode }}"
-      with_items:
-        - { src: "./etc/systemd/system/bentocarneiro.service", dest: "/etc/systemd/system/bentocarneiro.service", user: "root",          group: "root",          mode: "0644" }
+        src: "./etc/systemd/system/bentocarneiro.service"
+        dest: "/etc/systemd/system/bentocarneiro.service"
+        owner: "root"
+        group: "root"
+        mode: '0644'
 
     - name: Config sudoers file
       community.general.sudoers:
